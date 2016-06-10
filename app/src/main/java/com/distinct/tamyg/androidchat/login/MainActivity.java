@@ -1,4 +1,4 @@
-package com.distinct.tamyg.androidchat;
+package com.distinct.tamyg.androidchat.login;
 
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import com.distinct.tamyg.androidchat.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

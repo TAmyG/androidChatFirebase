@@ -1,4 +1,4 @@
-package com.distinct.tamyg.androidchat;
+package com.distinct.tamyg.androidchat.domain;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -8,7 +8,6 @@ import com.firebase.client.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 /**
  * Created by tamyg on 8/06/16.
