@@ -17,4 +17,7 @@
     <string name="addcontact.message.contactadded">Contacto agregado exitosamente</string>
     <string name="addcontact.error.message">Imposible agregar usuario no existente</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

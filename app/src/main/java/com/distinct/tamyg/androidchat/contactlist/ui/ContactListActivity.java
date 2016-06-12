@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.distinct.tamyg.androidchat.R;
+import com.distinct.tamyg.androidchat.addcontact.ui.AddContactFragment;
 import com.distinct.tamyg.androidchat.contactlist.ContactListPresenter;
 import com.distinct.tamyg.androidchat.contactlist.ContactListPresenterImpl;
 import com.distinct.tamyg.androidchat.contactlist.ui.adapters.ContactListAdapter;
@@ -105,6 +106,7 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
     }
     @OnClick(R.id.fab)
     public void addContact(){
+        new AddContactFragment().show(getSupportFragmentManager(), getString(R.string.addcontact_message_title));
 
     }
 
