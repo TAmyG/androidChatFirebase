@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.distinct.tamyg.androidchat.R;
+import com.distinct.tamyg.androidchat.domain.AvatarHelper;
 import com.distinct.tamyg.androidchat.entities.User;
+import com.distinct.tamyg.androidchat.lib.ImageLoader;
 
 import java.util.List;
 
@@ -21,10 +23,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ViewHolder> {
     private List<User> contactList;
-    private ImageLoading imageLoader;
+    private ImageLoader imageLoader;
     private OnItemClickListener onItemClickListener;
 
-    public ContactListAdapter(List<User> contactList, ImageLoading imageLoading, OnItemClickListener onItemClickListener) {
+    public ContactListAdapter(List<User> contactList, ImageLoader imageLoading, OnItemClickListener onItemClickListener) {
         this.contactList = contactList;
         this.imageLoader = imageLoading;
         this.onItemClickListener = onItemClickListener;
@@ -50,7 +52,7 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         holder.txtStatus.setText(status);
         holder.txtStatus.setTextColor(color);
 
-        imageLoader.load(holder.imgAvatar, "");
+        imageLoader.load(holder.imgAvatar, AvatarHelper.getAvatarUrl(email));
     }
 
     @Override
