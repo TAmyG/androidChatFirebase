@@ -1,5 +1,6 @@
 package com.distinct.tamyg.androidchat.domain;
 
+import com.distinct.tamyg.androidchat.entities.User;
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -98,7 +99,7 @@ public class FirebaseHelper {
     }
 
     public void signOff(){
-        notifyContactsOnConnectionChange(false, true);
+        notifyContactsOnConnectionChange(User.OFFLINE, true);
     }
 
     public void notifyContactsOnConnectionChange(Boolean online) {

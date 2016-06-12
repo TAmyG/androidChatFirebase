@@ -53,16 +53,6 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         super.onDestroy();
     }
 
-    @OnClick({R.id.btnSignin, R.id.btnSignup})
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnSignin:
-                break;
-            case R.id.btnSignup:
-                break;
-        }
-    }
-
     @Override
     public void enableInputs() {
         setInputs(true);
@@ -89,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         loginPresenter.registerNewUser(editTxtEmail.getText().toString(),
                 editTxtPassword.getText().toString());
     }
+
     @OnClick(R.id.btnSignin)
     @Override
     public void handleSignIn() {
@@ -105,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
     public void loginError(String error) {
         editTxtPassword.setText("");
         String msgError = String.format(getString(R.string.login_error_message_signin), error);
-        editTxtPassword.setText(msgError);
+        editTxtPassword.setError(msgError);
     }
 
     @Override
@@ -117,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
     public void newUserError(String error) {
         editTxtPassword.setText("");
         String msgError = String.format(getString(R.string.login_error_message_signup), error);
-        editTxtPassword.setText(msgError);
+        editTxtPassword.setError(msgError);
     }
 
     private void setInputs(Boolean enabled){

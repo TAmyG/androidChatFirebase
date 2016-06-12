@@ -32,6 +32,7 @@ ext {
 
     circleImageViewVersion = '2.0.0'
     firebaseClientVersion = '2.5.0'
+    firebaseVersion = '9.0.2'
     butterknifeVersion = '7.0.1'
     eventbusVersion = '3.0.0'
     glideVersion = '3.6.1'
