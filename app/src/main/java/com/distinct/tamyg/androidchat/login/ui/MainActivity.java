@@ -11,7 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.distinct.tamyg.androidchat.R;
-import com.distinct.tamyg.androidchat.contactlist.ContactListActivity;
+import com.distinct.tamyg.androidchat.contactlist.ui.ContactListActivity;
 import com.distinct.tamyg.androidchat.login.LoginPresenter;
 import com.distinct.tamyg.androidchat.login.LoginPresenterImpl;
 
