@@ -1,6 +1,7 @@
 package com.distinct.tamyg.androidchat.entities;
 
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * Created by tamyg on 11/06/16.
@@ -44,5 +45,15 @@ public class User {
 
     public void setContacts(Map<String, Boolean> contacts) {
         this.contacts = contacts;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        boolean equals = false;
+        if(obj instanceof User){
+            User recipe = (User)obj;
+            equals = this.email.equals(recipe.getEmail());
+        }
+        return equals;
     }
 }
