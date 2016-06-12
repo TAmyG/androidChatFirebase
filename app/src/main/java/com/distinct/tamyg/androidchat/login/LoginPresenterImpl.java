@@ -1,10 +1,9 @@
 package com.distinct.tamyg.androidchat.login;
 
-import android.util.Log;
-
 import com.distinct.tamyg.androidchat.lib.EventBus;
 import com.distinct.tamyg.androidchat.lib.GreenRobotEventBus;
 import com.distinct.tamyg.androidchat.login.event.LoginEvent;
+import com.distinct.tamyg.androidchat.login.ui.LoginView;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -117,6 +116,5 @@ public class LoginPresenterImpl implements LoginPresenter {
             loginView.hideProgress();
             loginView.enableInputs();
         }
-        Log.e("LoginPresenterImpl", "onFailedToRecoverSession");
     }
 }

@@ -1,4 +1,4 @@
-package com.distinct.tamyg.androidchat.login;
+package com.distinct.tamyg.androidchat.login.ui;
 
 /**
  * Created by tamyg on 9/06/16.

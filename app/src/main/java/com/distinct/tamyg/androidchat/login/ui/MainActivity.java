@@ -1,9 +1,8 @@
-package com.distinct.tamyg.androidchat.login;
+package com.distinct.tamyg.androidchat.login.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -13,12 +12,15 @@ import android.widget.RelativeLayout;
 
 import com.distinct.tamyg.androidchat.R;
 import com.distinct.tamyg.androidchat.contactList.ContactListActivity;
+import com.distinct.tamyg.androidchat.login.LoginPresenter;
+import com.distinct.tamyg.androidchat.login.LoginPresenterImpl;
+import com.distinct.tamyg.androidchat.login.ui.LoginView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements LoginView{
+public class MainActivity extends AppCompatActivity implements LoginView {
 
     @Bind(R.id.editTxtEmail)
     EditText editTxtEmail;
