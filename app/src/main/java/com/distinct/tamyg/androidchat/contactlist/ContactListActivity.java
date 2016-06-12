@@ -1,4 +1,4 @@
-package com.distinct.tamyg.androidchat.contactList;
+package com.distinct.tamyg.androidchat.contactlist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
