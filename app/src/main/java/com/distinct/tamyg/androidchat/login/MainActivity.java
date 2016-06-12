@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        loginPresenter = new LoginPresenterImpl(this);
+        loginPresenter.checkForAuthenticatedUser();
     }
 
     @OnClick({R.id.btnSignin, R.id.btnSignup})
@@ -79,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements LoginView{
         loginPresenter.registerNewUser(editTxtEmail.getText().toString(),
                 editTxtPassword.getText().toString());
     }
-
+    @OnClick(R.id.btnSignin)
     @Override
     public void handleSignIn() {
         loginPresenter.validateLogin(editTxtEmail.getText().toString(),
