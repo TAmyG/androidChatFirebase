@@ -1,8 +1,11 @@
 package com.distinct.tamyg.androidchat.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by tamyg on 12/06/16.
  */
+@JsonIgnoreProperties({"sentByMe"})
 public class ChatMessage {
     String msg;
     String sender;
@@ -42,7 +45,7 @@ public class ChatMessage {
     @Override
     public boolean equals(Object obj){
         boolean equals = false;
-        if(obj instanceof User){
+        if(obj instanceof ChatMessage){
             ChatMessage msg = (ChatMessage)obj;
             equals = this.sender.equals(msg.getSender()) && this.msg.equals(msg.getMsg())
                     && this.sentByMe == msg.sentByMe;

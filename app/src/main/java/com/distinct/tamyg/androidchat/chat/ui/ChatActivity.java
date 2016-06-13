@@ -26,6 +26,7 @@ import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ChatActivity extends AppCompatActivity implements ChatView{
@@ -42,8 +43,6 @@ public class ChatActivity extends AppCompatActivity implements ChatView{
     RecyclerView messageRecyclerView;
     @Bind(R.id.editTxtMessage)
     EditText editTxtMessage;
-    @Bind(R.id.btnSendMessage)
-    ImageButton btnSendMessage;
 
     private ChatPresenter presenter;
     private ChatAdapter adapter;
@@ -79,6 +78,8 @@ public class ChatActivity extends AppCompatActivity implements ChatView{
 
         ImageLoader imageLoader = new GlideImageLoader(getApplicationContext());
         imageLoader.load(imgAvatar, AvatarHelper.getAvatarUrl(recipient));
+
+        setSupportActionBar(toolbar);
     }
 
     private void setupRecyclerView() {
@@ -88,6 +89,12 @@ public class ChatActivity extends AppCompatActivity implements ChatView{
 
     private void setupAdapter() {
         adapter = new ChatAdapter(this, new ArrayList<ChatMessage>());
+    }
+
+    @OnClick(R.id.btnSendMessage)
+    public void sendMessage(){
+        presenter.sendMessage(editTxtMessage.getText().toString());
+        editTxtMessage.setText("");
     }
 
     @Override
