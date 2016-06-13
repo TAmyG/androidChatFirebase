@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.distinct.tamyg.androidchat.R;
 import com.distinct.tamyg.androidchat.addcontact.ui.AddContactFragment;
+import com.distinct.tamyg.androidchat.chat.ui.ChatActivity;
 import com.distinct.tamyg.androidchat.contactlist.ContactListPresenter;
 import com.distinct.tamyg.androidchat.contactlist.ContactListPresenterImpl;
 import com.distinct.tamyg.androidchat.contactlist.ui.adapters.ContactListAdapter;
@@ -127,6 +128,10 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
 
     @Override
     public void onItemClick(User user) {
+        Intent intent = new Intent(this, ChatActivity.class);
+        intent.putExtra(ChatActivity.EMAIL_KEY, user.getEmail());
+        intent.putExtra(ChatActivity.ONLINE_KEY, user.isOnline());
+        startActivity(intent);
 
     }
 
