@@ -12,13 +12,17 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.distinct.tamyg.androidchat.R;
-import com.distinct.tamyg.androidchat.chat.adapters.ChatAdapter;
+import com.distinct.tamyg.androidchat.chat.ui.adapters.ChatAdapter;
 import com.distinct.tamyg.androidchat.chat.ChatPresenter;
 import com.distinct.tamyg.androidchat.chat.ChatPresenterImpl;
 import com.distinct.tamyg.androidchat.domain.AvatarHelper;
 import com.distinct.tamyg.androidchat.entities.ChatMessage;
 import com.distinct.tamyg.androidchat.lib.GlideImageLoader;
 import com.distinct.tamyg.androidchat.lib.ImageLoader;
+
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -79,9 +83,11 @@ public class ChatActivity extends AppCompatActivity implements ChatView{
 
     private void setupRecyclerView() {
         messageRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        messageRecyclerView.setAdapter(adapter);
     }
 
     private void setupAdapter() {
+        adapter = new ChatAdapter(this, new ArrayList<ChatMessage>());
     }
 
     @Override
@@ -108,3 +114,4 @@ public class ChatActivity extends AppCompatActivity implements ChatView{
         messageRecyclerView.scrollToPosition(adapter.getItemCount() - 1);
     }
 }
+
