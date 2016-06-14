@@ -24,13 +24,23 @@ public class LoginPresenterImpl implements LoginPresenter {
     @Override
     public void onDestroy() {
         loginView = null;
-        eventBus.unregister(this);
     }
 
     @Override
     public void onCreate() {
+
+    }
+
+    @Override
+    public void onPause() {
+        eventBus.unregister(this);
+    }
+
+    @Override
+    public void onResume() {
         eventBus.register(this);
     }
+
 
     @Override
     public void checkForAuthenticatedUser() {

@@ -4,7 +4,7 @@
     <string name="login.message.email">Correo electrónico</string>
     <string name="login.message.password">Contraseña</string>
     <string name="login.button.signin">Iniciar sesión</string>
-    <string name="login.button.signup">Crear cuenta</string>
+    <string name="login.button.gotosignup">Ir a Crear cuenta</string>
     <string name="login.notice.message.useradded">Usuario registrado exitosamente</string>
     <string name="login.error.message.signin">Imposible iniciar sesión %s</string>
     <string name="login.error.message.signup">Imposible registrar nuevo usuario %s</string>
@@ -16,6 +16,9 @@
     <string name="addcontact.message.cancel">Cancelar</string>
     <string name="addcontact.message.contactadded">Contacto agregado exitosamente</string>
     <string name="addcontact.error.message">Imposible agregar usuario no existente</string>
+
+    <string name="signup.title.signup">Crear cuenta</string>
+    <string name="signup.button.signup">Crear cuenta</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

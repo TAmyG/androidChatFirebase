@@ -1,9 +1,9 @@
-package com.distinct.tamyg.androidchat.login.ui;
+package com.distinct.tamyg.androidchat.signup.ui;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,20 +14,18 @@ import com.distinct.tamyg.androidchat.R;
 import com.distinct.tamyg.androidchat.contactlist.ui.ContactListActivity;
 import com.distinct.tamyg.androidchat.login.LoginPresenter;
 import com.distinct.tamyg.androidchat.login.LoginPresenterImpl;
-import com.distinct.tamyg.androidchat.signup.ui.SignUpActivity;
+import com.distinct.tamyg.androidchat.login.ui.LoginView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity implements LoginView {
+public class SignUpActivity extends AppCompatActivity implements LoginView{
 
     @Bind(R.id.editTxtEmail)
     EditText editTxtEmail;
     @Bind(R.id.editTxtPassword)
     EditText editTxtPassword;
-    @Bind(R.id.btnSignin)
-    Button btnSignin;
     @Bind(R.id.btnSignup)
     Button btnSignup;
     @Bind(R.id.progressBar)
@@ -35,16 +33,18 @@ public class MainActivity extends AppCompatActivity implements LoginView {
     @Bind(R.id.layoutMainContainer)
     RelativeLayout layoutMainContainer;
 
-    //presentador
     private LoginPresenter loginPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_sign_up);
         ButterKnife.bind(this);
 
+        setTitle(R.string.signup_title_signup);
+
         loginPresenter = new LoginPresenterImpl(this);
+        loginPresenter.onCreate();
     }
 
     @Override
@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements LoginView {
     protected void onResume() {
         super.onResume();
         loginPresenter.onResume();
-        loginPresenter.checkForAuthenticatedUser();
     }
 
     @Override
@@ -89,16 +88,13 @@ public class MainActivity extends AppCompatActivity implements LoginView {
     @OnClick(R.id.btnSignup)
     @Override
     public void handleSignUp() {
-        startActivity(new Intent(this, SignUpActivity.class));
-        /*loginPresenter.registerNewUser(editTxtEmail.getText().toString(),
-                editTxtPassword.getText().toString());*/
+        loginPresenter.registerNewUser(editTxtEmail.getText().toString(),
+                editTxtPassword.getText().toString());
     }
 
-    @OnClick(R.id.btnSignin)
     @Override
     public void handleSignIn() {
-        loginPresenter.validateLogin(editTxtEmail.getText().toString(),
-                editTxtPassword.getText().toString());
+        throw new UnsupportedOperationException("Operation is not valid in SignUpActivity");
     }
 
     @Override
@@ -110,25 +106,24 @@ public class MainActivity extends AppCompatActivity implements LoginView {
 
     @Override
     public void loginError(String error) {
-        editTxtPassword.setText("");
-        String msgError = String.format(getString(R.string.login_error_message_signin), error);
-        editTxtPassword.setError(msgError);
+        throw new UnsupportedOperationException("Operation is not valid in SignUpActivity");
     }
 
     @Override
     public void newUserSuccess() {
-        throw new UnsupportedOperationException("Operation is not valid in MainActivity");
+        Snackbar.make(layoutMainContainer, R.string.login_notice_message_useradded, Snackbar.LENGTH_SHORT ).show();
     }
 
     @Override
     public void newUserError(String error) {
-        throw new UnsupportedOperationException("Operation is not valid in MainActivity");
+        editTxtPassword.setText("");
+        String msgError = String.format(getString(R.string.login_error_message_signup), error);
+        editTxtPassword.setError(msgError);
     }
 
     private void setInputs(Boolean enabled){
         editTxtEmail.setEnabled(enabled);
         editTxtPassword.setEnabled(enabled);
-        btnSignin.setEnabled(enabled);
         btnSignup.setEnabled(enabled);
     }
 }

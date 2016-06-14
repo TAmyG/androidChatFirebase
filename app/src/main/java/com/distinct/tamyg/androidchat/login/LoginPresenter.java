@@ -8,6 +8,8 @@ import com.distinct.tamyg.androidchat.login.event.LoginEvent;
 public interface LoginPresenter {
     void onDestroy();
     void onCreate();
+    void onPause();
+    void onResume();
     void checkForAuthenticatedUser();
     void validateLogin(String email, String password);
     void registerNewUser(String email, String password);
